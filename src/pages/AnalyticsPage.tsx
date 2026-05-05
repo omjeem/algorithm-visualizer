@@ -188,7 +188,7 @@ export default function AnalyticsPage() {
   const CARD_CLASS = 'rounded-xl bg-navy-900/60 backdrop-blur-sm border border-white/10 overflow-hidden';
 
   return (
-    <div className="p-4 lg:p-6 space-y-5 max-w-7xl mx-auto overflow-y-auto h-full">
+    <div className="p-4 lg:p-6 space-y-5 max-w-7xl mx-auto pb-8">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <h2 className="text-lg font-bold text-white font-mono mb-1">Analytics Dashboard</h2>
         <p className="text-xs text-slate-500 font-mono">Real-time expressway metrics with live traffic simulation</p>

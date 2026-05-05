@@ -20,7 +20,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   return (
-    <div className="p-4 lg:p-6 space-y-6 max-w-7xl mx-auto">
+    <div className="p-4 lg:p-6 space-y-6 max-w-7xl mx-auto pb-8">
       {/* Hero banner */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

@@ -18,7 +18,7 @@ export default function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#020617] text-white flex flex-col overflow-hidden">
+    <div className="h-screen bg-[#020617] text-white flex flex-col overflow-hidden">
       {/* Background ambient glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-[120px] opacity-8"
@@ -40,10 +40,12 @@ export default function App() {
         <Menu className="w-5 h-5" />
       </button>
 
-      <div className="flex flex-1 pt-14 overflow-hidden h-screen">
+      {/* pt-14 offsets the fixed navbar; min-h-0 lets flex children shrink below their content size */}
+      <div className="flex flex-1 min-h-0 pt-14">
         <Sidebar isMobileOpen={mobileOpen} onMobileClose={() => setMobileOpen(false)} />
 
-        <main className="flex-1 overflow-hidden relative">
+        {/* main is the single scroll container for scrollable pages */}
+        <main className="flex-1 min-h-0 overflow-y-auto relative">
           <AnimatePresence mode="wait">
             <Routes>
               <Route
@@ -56,7 +58,6 @@ export default function App() {
                     animate="animate"
                     exit="exit"
                     transition={{ duration: 0.25 }}
-                    className="h-full overflow-y-auto"
                   >
                     <Dashboard />
                   </motion.div>
@@ -72,7 +73,8 @@ export default function App() {
                     animate="animate"
                     exit="exit"
                     transition={{ duration: 0.25 }}
-                    className="h-full overflow-hidden flex flex-col"
+                    style={{ height: 'calc(100vh - 3.5rem)' }}
+                    className="overflow-hidden flex flex-col"
                   >
                     <AlgorithmsPage />
                   </motion.div>
@@ -88,7 +90,6 @@ export default function App() {
                     animate="animate"
                     exit="exit"
                     transition={{ duration: 0.25 }}
-                    className="h-full overflow-hidden"
                   >
                     <AnalyticsPage />
                   </motion.div>
